@@ -1,4 +1,4 @@
-This module seems to be a representation of a Course Management System (CMS). It defines several models that describe different aspects of a course management system such as departments, programs, program lines, courses, course prerequisites, course offerings, semesters, and semester sessions.
+This modul is about Course Management System (CMS). It defines several models that describe different aspects of a course management system such as departments, programs, program lines, courses, course prerequisites, course offerings, semesters, and semester sessions.
 
 Here's a brief overview of the functionality of each model:
 
