@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cms_department_all,cms.department.all,model_cms_department,,1,1,1,0
+access_cms_program_all,cms.program.all,model_cms_program,,1,1,1,0
+access_cms_program_line_all,cms.program.line.all,model_cms_program_line,,1,1,1,0
+access_cms_program_offered_all,cms.program.offered.all,model_cms_program_offered,,1,1,1,0
+access_cms_semester_all,cms.semester.all,model_cms_semester,,1,1,1,0
+access_cms_semester_session_all,cms.semester.session.all,model_cms_semester_session,,1,1,1,0
+access_cms_course_all,cms.course.all,model_cms_course,,1,1,1,0
+access_cms_course_offered_all,cms.course.offered.all,model_cms_course_offered,,1,1,1,0
+access_cms_course_prerequisite_all,cms.course.prerequisite.all,model_cms_course_prerequisite,,1,1,1,0
+access_cms_semester_session_all,cms.semester.session.all,model_cms_semester_session,,1,1,1,0
+access_cms_programoffer_line_all,cms.programoffer.line.all,model_cms_programoffer_line,,1,1,1,0
+
