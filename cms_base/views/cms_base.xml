@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- CMS Department -->
+
+    <!--                Define the form view -->
+    <record id="view_cms_department_form" model="ir.ui.view">
+        <field name="name">Department Form</field>
+        <field name="model">cms.department</field>
+        <field name="arch" type="xml">
+            <form string="Department">
+                <group>
+                    <field name="name"/>
+                </group>
+                <notebook>
+                    <page string="Programs">
+                        <field name="programs_offered_ids" mode="tree">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <!-- Define the tree view -->
+    <record id="view_cms_department_tree" model="ir.ui.view">
+        <field name="name">CMS Department Tree</field>
+        <field name="model">cms.department</field>
+        <field name="arch" type="xml">
+            <tree string="CMS Departments">
+                <field name="name"/>
+                <field name="programs_offered_ids" mode="tree">
+                    <tree string="Programs Offered" editable="bottom">
+                        <field name="name"/>
+                        <field name="duration"/>
+                        <field name="eligibility"/>
+                    </tree>
+                </field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cms_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">cms.department</field>
+        <field name="res_model">cms.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_no content_smiling_face">
+                You can add departments from here.
+            </p>
+        </field>
+    </record>
+
+
+    <!-- CMS Program-->
+
+    <!-- Form View -->
+    <record id="view_cms_program_form" model="ir.ui.view">
+        <field name="name">cms.program.form</field>
+        <field name="model">cms.program</field>
+        <field name="arch" type="xml">
+            <form string="Program Information">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="duration"/>
+                        <field name="eligibility"/>
+                    </group>
+                    <notebook>
+                        <page string="Program Lines">
+                            <field name="program_line_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="semester"/>
+                                    <field name="course"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Programs Offered">
+                            <field name="programoffered_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="credits_hours"/>
+                                    <field name="course_code"/>
+                                    <field name="semester_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--         Tree View -->
+
+    <record id="view_cms_program_tree" model="ir.ui.view">
+        <field name="name">cms.program.tree</field>
+        <field name="model">cms.program</field>
+        <field name="arch" type="xml">
+            <tree string="Programs">
+                <field name="name"/>
+                <field name="duration"/>
+                <field name="eligibility"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_cms_program" model="ir.actions.act_window">
+        <field name="name">Programs</field>
+        <field name="res_model">cms.program</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--  CMSProgramLine -->
+
+    <record model="ir.ui.view" id="view_cms_program_line_form">
+        <field name="name">cms.program.line.form</field>
+        <field name="model">cms.program.line</field>
+        <field name="arch" type="xml">
+            <form string="Program Line">
+                <group>
+                    <field name="name"/>
+                    <field name="semester"/>
+                    <field name="course"/>
+                    <field name="program_id"/>
+                </group>
+                <notebook>
+                    <page string="Courses">
+                        <field name="course_ids" mode="tree">
+                            <tree>
+                                <field name="name"/>
+                                <field name="credits_hours"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_cms_program_line_tree">
+        <field name="name">cms.program.line.tree</field>
+        <field name="model">cms.program.line</field>
+        <field name="arch" type="xml">
+            <tree string="Program Lines">
+                <field name="name"/>
+                <field name="semester"/>
+                <field name="course"/>
+                <field name="program_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cms_program_line" model="ir.actions.act_window">
+        <field name="name">Program Lines</field>
+        <field name="res_model">cms.program.line</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--  CMSProgramOffered -->
+
+    <!-- Form view for CMSProgramOffered -->
+    <record id="view_cms_program_offered_form" model="ir.ui.view">
+        <field name="name">CMS Program Offered Form</field>
+        <field name="model">cms.program.offered</field>
+        <field name="arch" type="xml">
+            <form string="Program Offered">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="program_id"/>
+                        <field name="semester_id"/>
+                        <field name="course_code"/>
+                        <field name="credits_hours"/>
+                    </group>
+                    <notebook>
+                        <page string="Program Offered Lines">
+                            <field name="program_offer_line_ids" mode="tree">
+                                <tree string="Program Offered Lines">
+                                    <field name="name"/>
+                                    <field name="duration"/>
+                                    <field name="semester"/>
+                                    <field name="course"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <!-- Tree view for CMSProgramOffered -->
+    <record id="view_cms_program_offered_tree" model="ir.ui.view">
+        <field name="name">CMS Program Offered Tree</field>
+        <field name="model">cms.program.offered</field>
+        <field name="arch" type="xml">
+            <tree string="Program Offered">
+                <field name="name"/>
+                <field name="program_id"/>
+                <field name="semester_id"/>
+                <field name="course_code"/>
+                <field name="credits_hours"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Action for CMSProgramOffered -->
+    <record id="action_cms_program_offered" model="ir.actions.act_window">
+        <field name="name">Program Offered</field>
+        <field name="res_model">cms.program.offered</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- cms_semester -->
+
+    <!-- Action -->
+    <record id="action_cms_semester" model="ir.actions.act_window">
+        <field name="name">CMS Semesters</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cms.semester</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click the Create button to add a new Semester
+            </p>
+        </field>
+    </record>
+
+
+
+    <!-- Tree view -->
+    <record id="view_cms_semester_tree" model="ir.ui.view">
+        <field name="name">Semester Tree</field>
+        <field name="model">cms.semester</field>
+        <field name="arch" type="xml">
+            <tree string="Semesters">
+                <field name="name"/>
+                <field name="program_offered_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_cms_semester_form" model="ir.ui.view">
+        <field name="name">Semester Form</field>
+        <field name="model">cms.semester</field>
+        <field name="arch" type="xml">
+            <form string="Semester">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="program_offered_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!--            Form view for CMSCourse-->
+
+    <record id="view_cmscourse_form" model="ir.ui.view">
+        <field name="name">cms.course.form</field>
+        <field name="model">cms.course</field>
+        <field name="arch" type="xml">
+            <form string="Course Form">
+                <group>
+                    <field name="course_code"/>
+                    <field name="name"/>
+                    <field name="credits_hours"/>
+                    <field name="prerequisites"/>
+                    <field name="program_line_id"/>
+                    <field name="program_offered_line_ids"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for CMSCourse -->
+    <record id="view_cmscourse_tree" model="ir.ui.view">
+        <field name="name">cms.course.tree</field>
+        <field name="model">cms.course</field>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="course_code"/>
+                <field name="name"/>
+                <field name="credits_hours"/>
+                <field name="prerequisites"/>
+                <field name="program_line_id"/>
+                <field name="program_offered_line_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    Action to view CMSCourse
+    <record id="action_cmscourse" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">cms.course</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- cms_course_prerequisite_views.xml -->
+
+    <!-- Form View -->
+    <record id="view_cms_course_prerequisite_form" model="ir.ui.view">
+        <field name="name">Course Prerequisite Form</field>
+        <field name="model">cms.course.prerequisite</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="course_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_cms_course_prerequisite_tree" model="ir.ui.view">
+        <field name="name">Course Prerequisite Tree</field>
+        <field name="model">cms.course.prerequisite</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="course_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- cms_course_prerequisite_actions.xml -->
+
+    <record id="action_cms_course_prerequisite" model="ir.actions.act_window">
+        <field name="name">Course Prerequisite</field>
+        <field name="res_model">cms.course.prerequisite</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- view for programoffer_line -->
+
+    <record model="ir.ui.view" id="view_cms_programoffer_line_form">
+        <field name="name">cms.programoffer.line.form</field>
+        <field name="model">cms.programoffer.line</field>
+        <field name="arch" type="xml">
+            <form string="Program Offered Line">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="duration"/>
+                        <field name="semester"/>
+                        <field name="course"/>
+                        <field name="program_offered_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Program Offered Course">
+                            <field name="course_ids" mode="tree">
+                                <tree string="Courses">
+                                    <field name="name"/>
+                                    <!--                    <field name="semester"/>-->
+                                    <!--                    <field name="course"/>-->
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_cms_programoffer_line_tree" model="ir.ui.view">
+        <field name="name">cms.programoffer.line.tree</field>
+        <field name="model">cms.programoffer.line</field>
+        <field name="arch" type="xml">
+            <tree string="Program Offered Lines">
+                <field name="name"/>
+                <field name="duration"/>
+                <!--          <field name="semester"/>-->
+                <!--          <field name="course"/>-->
+                <field name="program_offered_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cms_program_offered_line" model="ir.actions.act_window">
+        <field name="name">Program Offered Lines</field>
+        <field name="res_model">cms.programoffer.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create a new Program Offered Line
+            </p>
+        </field>
+    </record>
+
+
+    <!--      Course Offered-->
+    <!--            Form View-->
+
+    <record id="view_cms_course_offered_form" model="ir.ui.view">
+        <field name="name">cms.course.offered.form</field>
+        <field name="model">cms.course.offered</field>
+        <field name="arch" type="xml">
+            <form string="Course Offered">
+                <header>
+                    <button name="set_to_draft" string="Draft"
+                            type="object" class="oe_highlight"/>
+                    <button name="set_to_verified" string="Verified"
+                            type="object" class="oe_highlight"/>
+                    <button name="set_to_approved" string="Approved"
+                            type="object" class="oe_highlight"/>
+                    <button name="set_to_cancelled" string="Cancelled"
+                            type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="course_ids"/>
+<!--                        <field name="name"/>-->
+                        <field name="credits_hours"/>
+                        <field name="state" readonly="1"/>
+                        <field name="semester_session_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for CMSCourseOffered model -->
+    <record id="view_cms_course_offered_tree" model="ir.ui.view">
+        <field name="name">cms.course.offered.tree</field>
+        <field name="model">cms.course.offered</field>
+        <field name="arch" type="xml">
+            <tree string="Course Offered">
+                <field name="course_ids"/>
+<!--                <field name="name"/>-->
+                <field name="credits_hours"/>
+                <field name="state"/>
+
+                <field name="semester_session_ids"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_cms_course_offered" model="ir.actions.act_window">
+        <field name="name">Course Offered</field>
+        <field name="res_model">cms.course.offered</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Action to open Semester Session list view -->
+
+    <record id="action_cms_semester_session" model="ir.actions.act_window">
+        <field name="name">Semester Sessions</field>
+        <field name="res_model">cms.semester.session</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Semester Session tree view -->
+    <record id="view_cms_semester_session_tree" model="ir.ui.view">
+        <field name="name">Semester Session Tree</field>
+        <field name="model">cms.semester.session</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Semester Session form view -->
+    <record id="view_cms_semester_session_form" model="ir.ui.view">
+        <field name="name">Semester Session Form</field>
+        <field name="model">cms.semester.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>
+
+
