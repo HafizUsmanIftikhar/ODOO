@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Define the main menu item for CMS -->
+
+    <menuitem id="main_menu_cms" name="CMS" sequence="10"/>
+
+ <!-- Menu items for CMS Departments -->
+    <menuitem id="menu_cms_department_main" name="Departments" parent="main_menu_cms" sequence="1"/>
+    <menuitem id="menu_cms_department_" name="Departments" parent="menu_cms_department_main" action="action_cms_department" sequence="21"/>
+
+
+
+    <!-- Menu items for Programs -->
+    <menuitem id="menu_cms_program" name="Programs" parent="menu_cms_department_" sequence="20" action="action_cms_program"/>
+    <menuitem id="menu_cms_program_list" name="Program List" parent="menu_cms_program" action="action_cms_program"/>
+
+    <menuitem id="menu_cms_program_line" name="Program Lines" parent="menu_cms_program" sequence="10"/>
+    <menuitem id="menu_cms_program_line_list" name="Program Line List" parent="menu_cms_program_line"/>
+    <menuitem id="menu_cms_program_line_form" name="Create Program Line" parent="menu_cms_program_line" action="action_cms_program_line" />
+    <menuitem id="menu_cms_program_offered" name="Program Offered" parent="menu_cms_program" action="action_cms_program_offered"/>
+
+
+    <!-- Menu items for Courses -->
+    <menuitem id="menu_cmscourse" name="Configurations" parent="main_menu_cms"  sequence="50"/>
+    <menuitem id="menu_cmscourse_tree" name="Courses" parent="menu_cmscourse" action="action_cmscourse" sequence="10"/>
+
+
+<menuitem id="menu_course_offered_view" name="Course Offered" parent="menu_cmscourse" action="action_cms_course_offered" sequence="10"/>
+    <menuitem id="menu_course_offered_view" name="Course Offered" parent="menu_cmscourse" action="action_cms_course_offered"/>
+    <menuitem id="menu_cms_semester_form" name="Semester Form" parent="menu_cmscourse" action="action_cms_semester" />
+    <menuitem id="menu_cms_semester_form" name="Semester Form" parent="menu_cmscourse" action="action_cms_semester" sequence="40"/>
+    <menuitem id="menu_cms_semester_session" name="Semester Sessions" parent="menu_cmscourse" action="action_cms_semester_session" sequence="40"/>
+
+
+</odoo>
