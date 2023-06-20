@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Top Menu CMS -->
+    <menuitem id="menu_main_campus" name="CMS" web_icon="cms_student,static/description/icon.png" sequence="1"/>
+    
+    <!-- Main Menus -->
+    <menuitem id="menu_cms_student_main" name="Students" parent="menu_main_campus" sequence="1"/>
+    <menuitem id="menu_cms_student" name="Students" parent="menu_cms_student_main" action="action_cms_student" sequence="21"/>
+    <menuitem id="menu_event_organizer" name="Organizers (Prototype)" parent="menu_cms_student_main" action="action_event_organizer" sequence="21"/>
+	<menuitem id="menu_hr_employee_organizer" name="Employee Organizers (Delegation)" parent="menu_cms_student_main" action="action_hr_employee_organizer" sequence="21"/>
+	
+	<menuitem id="menu_cms_student_academics" name="Academics" parent="menu_main_campus" sequence="2"/>
+	<menuitem id="menu_cms_department" name="Departments" parent="menu_cms_student_academics" action="action_cms_department" sequence="20"/>
+	<menuitem id="menu_cms_course" name="Courses" parent="menu_cms_student_academics" action="action_cms_course" sequence="21"/>
+	<menuitem id="menu_cms_course_offered" name="Courses Offered" parent="menu_cms_student_academics" action="action_cms_course_offered" sequence="22"/>
+
+</odoo>

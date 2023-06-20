@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cms_student_admin,cms.student.admin,model_cms_student,group_cms_student_administrator_id,1,1,1,1
+access_cms_student_all,cms.student.all,model_cms_student,,1,1,1,0
+access_cms_course_all,cms.course.all,model_cms_course,,1,1,1,0
+access_cms_course_offered_all,cms.course_offered.all,model_cms_course_offered,,1,1,1,0
+access_cms_department_all,cms.department.all,model_cms_department,,1,1,1,0
+access_event_organizer_all,event.organizer.all,model_event_organizer,,1,1,1,0
+access_hr_employee_organizer_all,hr.employee.organizer.all,model_hr_employee_organizer,,1,1,1,0
